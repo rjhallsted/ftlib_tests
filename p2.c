@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   p2.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/18 14:35:18 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/19 16:14:15 by rhallste         ###   ########.fr       */
+/*   Created: 2017/09/19 16:20:06 by rhallste          #+#    #+#             */
+/*   Updated: 2017/09/19 16:26:06 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "../libft/libft.h"
 
 int main(void)
@@ -23,6 +24,14 @@ int main(void)
 	while (len > 0)
 		printf("%c", mem[len--] + '0');
 	printf("\n");
+
+	void **p1;
+	void *p2;
+	p2 = malloc(4);
+	p1 = &p2;
+	printf("\n===ft_memdel===\n");
+	ft_memdel(p1);
+	printf("%p\n", p2);
 
 	printf("\n===ft_putchar===\n");
 	ft_putchar('a');
