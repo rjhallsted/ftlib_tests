@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/19 11:29:50 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/19 11:36:30 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,26 @@ int main(void)
 	char_test(&ft_isprint, &isprint, 345, i++);
 	char_test(&ft_isprint, &isprint, 7, i++);
 	char_test(&ft_isprint, &isprint, 127, i++);
+
+	printf("\n===ft_toupper===\n");
+	char_test(&ft_toupper, &toupper, '1', i++);
+	char_test(&ft_toupper, &toupper, ' ', i++);
+	char_test(&ft_toupper, &toupper, 'a', i++);
+	char_test(&ft_toupper, &toupper, 'Z', i++);
+	char_test(&ft_toupper, &toupper, '/', i++);
+	char_test(&ft_toupper, &toupper, 345, i++);
+	char_test(&ft_toupper, &toupper, 7, i++);
+	char_test(&ft_toupper, &toupper, 127, i++);
+
+	printf("\n===ft_tolower===\n");
+	char_test(&ft_tolower, &tolower, '1', i++);
+	char_test(&ft_tolower, &tolower, ' ', i++);
+	char_test(&ft_tolower, &tolower, 'a', i++);
+	char_test(&ft_tolower, &tolower, 'Z', i++);
+	char_test(&ft_tolower, &tolower, '/', i++);
+	char_test(&ft_tolower, &tolower, 345, i++);
+	char_test(&ft_tolower, &tolower, 7, i++);
+	char_test(&ft_tolower, &tolower, 127, i++);
 
 	return (1);
 }
