@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:35:18 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/18 17:47:08 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/19 16:14:15 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 int main(void)
 {
+	int len;
+	char *mem;
+	printf("\n===ft_memalloc===\n");
+	len = 5;
+	mem = (char *)ft_memalloc(len);
+	while (len > 0)
+		printf("%c", mem[len--] + '0');
+	printf("\n");
+
 	printf("\n===ft_putchar===\n");
 	ft_putchar('a');
 	printf(" == a\n");
