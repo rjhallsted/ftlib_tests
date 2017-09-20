@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/20 14:41:45 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/20 16:10:53 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,23 @@ int main(void)
 	str_to_int_test(&ft_strlen, &strlen, "", i++);
 	str_to_int_test(&ft_strlen, &strlen, "Redadsadf af", i++);
 
+	printf("\n===ft_strdup===\n");
+	printf("red=%s\n", ft_strdup("red"));
+	printf("42hyfr=%s\n", ft_strdup("42hyfr"));
+
+	printf("\n===ft_strcpy===\n");
+	srcmem = strdup("blue");
+	memtest = (char *)malloc(sizeof(char) * 5);
+	printf("blue=%s\n", ft_strcpy(memtest, srcmem));
+	free(srcmem);
+	free(memtest);
+
+	printf("\n===ft_strcpy===\n");
+	memtest = (char *)malloc(sizeof(char) * strlen("testing me") + 6);
+	printf("testing me=%s\n", ft_strncpy(memtest, "testing me", strlen("testing me") + 6));
+	printf("testing me now=%s\n", ft_strncpy(memtest, "testing me now", strlen("testing me") + 6));
+	printf("blueing me now=%s\n", ft_strncpy(memtest, "blue", 4));
+	
 	char *s1;
 	char *s2;
 	printf("\n===ft_strcmp===\n");
