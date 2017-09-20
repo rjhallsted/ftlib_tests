@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/20 11:28:45 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/20 12:06:39 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,45 @@ int main(void)
 	free(srcmem);
 	free(memtest);
 
+	printf("\n===ft_memmove===\n");
+	srcmem = (char *)malloc(5);
+	memset(srcmem, 'a', 5);
+	memtest = (char *)malloc(5);
+	memset(memtest, 'b', 5);
+	ft_memmove(memtest, srcmem, 5);
+	printf("All a's: ");
+	print_bstring(memtest, 5, 0);
+	free(srcmem);
+	free(memtest);
+	//------------------
+	srcmem = (char *)malloc(5);
+	memset(srcmem, 'a', 5);
+	memtest = (char *)malloc(5);
+	memset(memtest, 'b', 5);
+	ft_memmove(memtest, srcmem, 3);
+	printf("3 a's: ");
+	print_bstring(memtest, 5, 0);
+	free(srcmem);
+	free(memtest);
+	//-----------------
+	srcmem = (char *)malloc(5);
+	memset(srcmem, 'a', 5);
+	memtest = (char *)malloc(5);
+	memset(memtest, 'b', 5);
+	ft_memmove(memtest, srcmem, 0);
+	printf("All b's: ");
+	print_bstring(memtest, 5, 0);
+	free(srcmem);
+	free(memtest);
+	//---------------
+	srcmem = (char *)malloc(6);
+	memset(srcmem, 'a', 6);
+	memtest = srcmem + 2;
+	memset(memtest, 'b', 4);
+	ft_memmove(memtest, srcmem, 3);
+	printf("aababb: ");
+	print_bstring(srcmem, 6, 0);
+	free(srcmem);
 
 	printf("\n===ft_strlen===\n");
 	str_to_int_test(&ft_strlen, &strlen, "Testing", i++);
