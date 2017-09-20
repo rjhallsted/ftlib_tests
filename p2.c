@@ -6,12 +6,13 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 16:20:06 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/19 16:26:06 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/19 16:42:54 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "../libft/libft.h"
 
 int main(void)
@@ -32,6 +33,13 @@ int main(void)
 	printf("\n===ft_memdel===\n");
 	ft_memdel(p1);
 	printf("%p\n", p2);
+
+
+	printf("\n===ft_strclr=== (should be empty lines)\n");
+	char *s1 = (char *)malloc(sizeof(char) * 4);
+	s1 = strcpy(s1, "red");
+	ft_strclr(s1);
+	printf("%s\n", s1);
 
 	printf("\n===ft_putchar===\n");
 	ft_putchar('a');
