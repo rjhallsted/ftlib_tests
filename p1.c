@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/20 10:57:47 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/20 11:28:45 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void print_bstring(void *s, size_t len, int add_zero)
 int main(void)
 {
 	char *memtest;
+	char *srcmem;
 	int i;
 	int len;
 	i = 1;
@@ -89,6 +90,70 @@ int main(void)
 	printf("All ?s: ");
 	print_bstring(memtest, len, 1);
 	free(memtest);
+	
+	printf("\n===ft_memcpy===\n");
+	srcmem = (char *)malloc(5);
+	memset(srcmem, 'a', 5);
+	memtest = (char *)malloc(5);
+	memset(memtest, 'b', 5);
+	ft_memcpy(memtest, srcmem, 5);
+	printf("All a's: ");
+	print_bstring(memtest, 5, 0);
+	free(srcmem);
+	free(memtest);
+	//------------------
+	srcmem = (char *)malloc(5);
+	memset(srcmem, 'a', 5);
+	memtest = (char *)malloc(5);
+	memset(memtest, 'b', 5);
+	ft_memcpy(memtest, srcmem, 3);
+	printf("3 a's: ");
+	print_bstring(memtest, 5, 0);
+	free(srcmem);
+	free(memtest);
+	//-----------------
+	srcmem = (char *)malloc(5);
+	memset(srcmem, 'a', 5);
+	memtest = (char *)malloc(5);
+	memset(memtest, 'b', 5);
+	ft_memcpy(memtest, srcmem, 0);
+	printf("All b's: ");
+	print_bstring(memtest, 5, 0);
+	free(srcmem);
+	free(memtest);
+
+	printf("\n===ft_memccpy===\n");
+	srcmem = (char *)malloc(5);
+	memset(srcmem, 'a', 3);
+	memset(srcmem + 3, 'b', 2);
+	memtest = (char *)malloc(5);
+	memset(memtest, 'c', 5);
+	ft_memccpy(memtest, srcmem, 'b', 5);
+	printf("aaabc: ");
+	print_bstring(memtest, 5, 0);
+	free(srcmem);
+	free(memtest);
+	//------------------
+	srcmem = (char *)malloc(5);
+	memset(srcmem, 'a', 5);
+	memtest = (char *)malloc(5);
+	memset(memtest, 'b', 5);
+	ft_memccpy(memtest, srcmem, 'a', 5);
+	printf("abbbb: ");
+	print_bstring(memtest, 5, 0);
+	free(srcmem);
+	free(memtest);
+	//-----------------
+	srcmem = (char *)malloc(5);
+	memset(srcmem, 'a', 5);
+	memtest = (char *)malloc(5);
+	memset(memtest, 'b', 5);
+	ft_memccpy(memtest, srcmem, 'a', 0);
+	printf("bbbbb: ");
+	print_bstring(memtest, 5, 0);
+	free(srcmem);
+	free(memtest);
+
 
 	printf("\n===ft_strlen===\n");
 	str_to_int_test(&ft_strlen, &strlen, "Testing", i++);
