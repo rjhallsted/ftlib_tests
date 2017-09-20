@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/19 14:52:35 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/20 10:57:47 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,59 @@ void str_to_int_test(size_t (*test)(const char *), size_t (*real)(const char *),
 	printf("%d) %d == %d --> %d\n", nb, tr, rr, tr == rr);
 }
 
+void print_bstring(void *s, size_t len, int add_zero)
+{
+	char *tmp;
+	size_t i;
+	int modval;
+
+	modval = (add_zero) ? '0' : 0;
+	i = 0;
+	tmp = s;
+	while (i < len)
+		printf("%c", tmp[i++] + modval);
+	printf("\n");
+}
+
 int main(void)
 {
+	char *memtest;
 	int i;
-
+	int len;
 	i = 1;
 
+	printf("\n===ft_memset===\n");
+	len = 5;
+	memtest = (char *)malloc(len);
+	ft_memset(memtest, 'a', len);
+	print_bstring(memtest, len, 0);
+	free(memtest);
+
+	printf("\n===ft_bzero===\n");
+	len = 5;
+	memtest = (char *)malloc(len);
+	memset(memtest, 'a', len);
+	ft_bzero(memtest, len);
+	printf("All zeros: ");
+	print_bstring(memtest, len, 1);
+	free(memtest);
+	memtest = (char *)malloc(len);
+	memset(memtest, 'a', len);
+	ft_bzero(memtest, 2);
+	printf("This should have 2 zeros: ");
+	print_bstring(memtest, len, 1);
+	free(memtest);
+	memtest = (char *)malloc(len);
+	memset(memtest, 'a', len);
+	ft_bzero(memtest, 0);
+	printf("All ?s: ");
+	print_bstring(memtest, len, 1);
+	free(memtest);
+
 	printf("\n===ft_strlen===\n");
-	str_to_int_test(&ft_strlen, &strlen, "Testing", i);
-	str_to_int_test(&ft_strlen, &strlen, "", i);
-	str_to_int_test(&ft_strlen, &strlen, "Redadsadf af", i);
+	str_to_int_test(&ft_strlen, &strlen, "Testing", i++);
+	str_to_int_test(&ft_strlen, &strlen, "", i++);
+	str_to_int_test(&ft_strlen, &strlen, "Redadsadf af", i++);
 
 	char *s1;
 	char *s2;
