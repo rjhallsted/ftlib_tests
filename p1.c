@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/20 12:06:39 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/20 14:41:45 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,32 @@ int main(void)
 	printf("aababb: ");
 	print_bstring(srcmem, 6, 0);
 	free(srcmem);
+
+	printf("\n===ft_memchr===\n");
+	srcmem = (char *)malloc(6);
+	memset(srcmem, 'a', 3);
+	memset(srcmem + 3, 'b', 3);
+	memtest = ft_memchr(srcmem, 'b', 6);
+	printf("b3: %c%ld\n", *memtest, memtest - srcmem);
+	free(srcmem);
+	//------------
+	srcmem = (char *)malloc(6);
+	memset(srcmem, 'a', 6);
+	memtest = ft_memchr(srcmem, 'a', 6);
+	printf("a0: %c%ld\n", *memtest, memtest - srcmem);
+	free(srcmem);
+	//------------
+	srcmem = (char *)malloc(6);
+	memset(srcmem, 'a', 6);
+	memtest = ft_memchr(srcmem, 'b', 6);
+	printf("NULL(0x00): %p\n", memtest);
+	free(srcmem);
+
+	printf("\n===ft_memcmp===\n");
+	printf("a:a:0: %d\n", ft_memcmp("a", "a", 1));
+	printf("aa:ab:-1: %d\n", ft_memcmp("aa", "ab", 2));
+	printf("(length 0):0: %d\n", ft_memcmp("aaa", "bbb", 0));
+	printf("bb:ba:1: %d\n", ft_memcmp("bb", "ba", 2));
 
 	printf("\n===ft_strlen===\n");
 	str_to_int_test(&ft_strlen, &strlen, "Testing", i++);
