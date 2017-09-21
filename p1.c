@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/20 18:27:42 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/20 18:39:46 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -313,6 +313,12 @@ int main(void)
 	printf("NULL(0x00): %p\n", memtest);
 	free(srcmem);
 
+	printf("\n===ft_strstr===\n");
+	printf("dest: %s\n", ft_strstr("raddest", "dest"));
+	printf("raddest: %s\n", ft_strstr("raddest", "rad"));
+	printf("(NULL)0x00: %p\n", ft_strstr("raddest", "blue"));
+	printf("(NULL)0x00: %p\n", ft_strstr("raddest", "raddd"));
+	printf("raddest: %s\n", ft_strstr("raddest", ""));
 
 	char *s1;
 	char *s2;
