@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/20 16:40:56 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/20 18:27:42 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -264,7 +264,7 @@ int main(void)
 	memtest = (char *)malloc(sizeof(char) * 8);
 	memtest = strcpy(memtest, "blue");
 	ft_strlcat(memtest, srcmem, 6);
-	printf("bluer: %s\n", memtest);
+	printf("bluere: %s\n", memtest);
 	free(memtest);
 	//-------------
 	srcmem = "red";
@@ -273,6 +273,45 @@ int main(void)
 	ft_strlcat(memtest, srcmem, 12);
 	printf("bluered: %s\n", memtest);
 	free(memtest);
+	//-------------
+	srcmem = "red";
+	memtest = (char *)malloc(sizeof(char) * 8);
+	memtest = strcpy(memtest, "blue");
+	ft_strlcat(memtest, srcmem, 8);
+	printf("bluered: %s\n", memtest);
+	free(memtest);
+
+	printf("\n===ft_strchr===\n");
+	srcmem = strdup("aaabbb");
+	memtest = ft_strchr(srcmem, 'b');
+	printf("b3: %c%ld\n", *memtest, memtest - srcmem);
+	free(srcmem);
+	//------------
+	srcmem = strdup("aaaaaa");
+	memtest = ft_strchr(srcmem, 'a');
+	printf("a0: %c%ld\n", *memtest, memtest - srcmem);
+	free(srcmem);
+	//------------
+	srcmem = strdup("aaaaaa");
+	memtest = ft_strchr(srcmem, 'b');
+	printf("NULL(0x00): %p\n", memtest);
+	free(srcmem);
+
+	printf("\n===ft_strrchr===\n");
+	srcmem = strdup("bbbaaa");
+	memtest = ft_strrchr(srcmem, 'b');
+	printf("b2: %c%ld\n", *memtest, memtest - srcmem);
+	free(srcmem);
+	//------------
+	srcmem = strdup("aaaaaa");
+	memtest = ft_strrchr(srcmem, 'a');
+	printf("a5: %c%ld\n", *memtest, memtest - srcmem);
+	free(srcmem);
+	//------------
+	srcmem = strdup("aaaaaa");
+	memtest = ft_strrchr(srcmem, 'b');
+	printf("NULL(0x00): %p\n", memtest);
+	free(srcmem);
 
 
 	char *s1;
