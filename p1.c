@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/21 10:01:56 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/21 10:36:03 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,19 @@ int main(void)
 	print_bstring(memtest, 5, 0);
 	free(srcmem);
 	free(memtest);
+	//---------
+	char src[] = "test basic du memccpy !";
+	char buff1[22];
+	char buff2[22];
+	memset(buff1, 0, sizeof(buff1));
+	memset(buff2, 0, sizeof(buff2));
+	char *r1 = memccpy(buff1, src, 'm', 22);
+	char *r2 = ft_memccpy(buff2, src, 'm', 22);
+	printf("%s: %s\n", r1, r2);
+	r1 = memccpy("", src, 'm', 0);
+	r2 = ft_memccpy("", src, 'm', 0);
+	printf("%s: %s\n", r1, r1);
+
 
 	printf("\n===ft_memmove===\n");
 	srcmem = (char *)malloc(5);
