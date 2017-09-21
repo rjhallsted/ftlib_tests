@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/20 16:10:53 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/20 16:40:56 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,12 +236,45 @@ int main(void)
 	free(srcmem);
 	free(memtest);
 
-	printf("\n===ft_strcpy===\n");
+	printf("\n===ft_strncpy===\n");
 	memtest = (char *)malloc(sizeof(char) * strlen("testing me") + 6);
 	printf("testing me=%s\n", ft_strncpy(memtest, "testing me", strlen("testing me") + 6));
 	printf("testing me now=%s\n", ft_strncpy(memtest, "testing me now", strlen("testing me") + 6));
 	printf("blueing me now=%s\n", ft_strncpy(memtest, "blue", 4));
+	free(memtest);
 	
+	printf("\n===ft_strcat===\n");
+	srcmem = "red";
+	memtest = (char *)malloc(sizeof(char) * 8);
+	memtest = strcpy(memtest, "blue");
+	ft_strcat(memtest, srcmem);
+	printf("bluered: %s\n", memtest);
+	free(memtest);
+
+	printf("\n===ft_strncat===\n");
+	srcmem = "red";
+	memtest = (char *)malloc(sizeof(char) * 8);
+	memtest = strcpy(memtest, "blue");
+	ft_strncat(memtest, srcmem, 2);
+	printf("bluere: %s\n", memtest);
+	free(memtest);
+
+	printf("\n===ft_strlcat===\n");
+	srcmem = "red";
+	memtest = (char *)malloc(sizeof(char) * 8);
+	memtest = strcpy(memtest, "blue");
+	ft_strlcat(memtest, srcmem, 6);
+	printf("bluer: %s\n", memtest);
+	free(memtest);
+	//-------------
+	srcmem = "red";
+	memtest = (char *)malloc(sizeof(char) * 8);
+	memtest = strcpy(memtest, "blue");
+	ft_strlcat(memtest, srcmem, 12);
+	printf("bluered: %s\n", memtest);
+	free(memtest);
+
+
 	char *s1;
 	char *s2;
 	printf("\n===ft_strcmp===\n");
