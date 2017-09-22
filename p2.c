@@ -1,4 +1,4 @@
-	/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   p2.c                                               :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 16:20:06 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/22 13:56:30 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/22 16:02:43 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,19 @@ int main(void)
 	ft_str = ft_strmapi("aaaaaa", &cshiftchar_byindex);
 	printf("abcdef: %s\n", ft_str);
 	free(ft_str);
+
+	printf("\n===ft_strequ===\n");
+	printf("1: %d\n", ft_strequ("reddd", "reddd"));
+	printf("0: %d\n", ft_strequ("red", "blue"));
+
+	printf("\n===ft_strnequ===\n");
+	printf("1: %d\n", ft_strnequ("reddd", "reddd", 5));
+	printf("0: %d\n", ft_strnequ("red", "blue", 4));
+	printf("1: %d\n", ft_strnequ("red", "reb", 2));
+	printf("1: %d\n", ft_strnequ("green", "red", 0));
+	printf("1: %d\n", ft_strnequ("", "", 4));
+	printf("1: %d\n", ft_strnequ("", "", 1));
+	printf("1: %d\n", ft_strnequ("red", "red", 24));
 
 	printf("\n===ft_strclr=== (should be empty lines)\n");
 	char *s1 = (char *)malloc(sizeof(char) * 4);
