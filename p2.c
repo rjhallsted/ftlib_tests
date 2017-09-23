@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 16:20:06 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/22 16:02:43 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/22 19:35:48 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,19 @@ char cshiftchar(char c)
 char cshiftchar_byindex(unsigned int index, char c)
 {
 	return (c + index);
+}
+
+void print_word_array(char **words, unsigned int size)
+{
+	unsigned int i;
+
+	i = 0;
+	while (i < size)
+	{
+		printf("%s, ", words[i]);
+		i++;
+	}
+	printf("\n");
 }
 
 
@@ -82,6 +95,13 @@ int main(void)
 	ft_strdel(&ft_str);
 	printf("(null): %s\n", ft_str);
 
+	printf("\n===ft_strclr=== (should be empty lines)\n");
+	char *s1 = (char *)malloc(sizeof(char) * 4);
+	s1 = strcpy(s1, "red");
+	ft_strclr(s1);
+	printf("%s\n", s1);
+	free(s1);
+
 	printf("\n===ft_striter===\n");
 	ft_str = strdup("aaaaaa");
 	ft_striter(ft_str, &shiftchar);
@@ -117,12 +137,33 @@ int main(void)
 	printf("1: %d\n", ft_strnequ("", "", 1));
 	printf("1: %d\n", ft_strnequ("red", "red", 24));
 
-	printf("\n===ft_strclr=== (should be empty lines)\n");
-	char *s1 = (char *)malloc(sizeof(char) * 4);
-	s1 = strcpy(s1, "red");
-	ft_strclr(s1);
-	printf("%s\n", s1);
-	free(s1);
+	printf("\n===ft_strsub===\n");
+	printf("read: %s\n", ft_strsub("breads", 1, 4));
+	printf("running over: %s\n", ft_strsub("is running over", 3, 45));
+	printf("(this one's empty): %s\n", ft_strsub("not empty", 2, 0));
+
+	printf("\n===ft_strjoin===\n");
+	printf("redblue: %s\n", ft_strjoin("red", "blue"));
+	printf("green: %s\n", ft_strjoin("", "green"));
+	printf("testing: %s\n", ft_strjoin("testing", ""));
+
+	printf("\n===ft_strtrim===\n");
+	printf("green: %s\n", ft_strtrim("   green	"));
+	printf("with spaces: %s\n", ft_strtrim("with spaces   "));
+	printf("(empty): %s\n", ft_strtrim(""));
+	printf("in    spaces: %s\n", ft_strtrim("   in    spaces"));
+
+	printf("\n===ft_strsplit===\n");
+	char **words;
+	words = ft_strsplit("red  blue green", ' ');
+	printf("red, blue, green,: ");
+	print_word_array(words, 3);
+
+	printf("\n===ft_itoa===\n");
+	printf("-2147483648: %s\n", ft_itoa(-2147483648));
+	printf("2147483647: %s\n", ft_itoa(2147483647));
+	printf("0: %s\n", ft_itoa(0));
+	printf("3: %s\n", ft_itoa(3));
 
 	printf("\n===ft_putchar===\n");
 	ft_putchar('a');
