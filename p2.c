@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 16:20:06 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/22 19:35:48 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/25 14:03:16 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,15 @@ int main(void)
 	words = ft_strsplit("red  blue green", ' ');
 	printf("red, blue, green,: ");
 	print_word_array(words, 3);
+	char *s = "      split       this for   me  !       ";
+	char **r = ft_strsplit(s, ' ');
+	printf("split, this, for, me, !,: ");
+	print_word_array(r, 5);
+	s = "                  olol";
+	r = ft_strsplit(s, ' ');
+	printf("olol,: ");
+	print_word_array(r, 1);
+
 
 	printf("\n===ft_itoa===\n");
 	printf("-2147483648: %s\n", ft_itoa(-2147483648));

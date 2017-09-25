@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 21:01:27 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/21 10:59:20 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/23 22:27:39 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -348,25 +348,28 @@ int main(void)
 	printf("\n===ft_strcmp===\n");
 	s1 = "red";
 	s2 = "blue";
-	printf("%d) %d == %d --. %d\n", i++, ft_strcmp(s1, s2), strcmp(s1, s2), ft_strcmp(s1, s2) == strcmp(s1, s2));
+	printf("%d) %d == %d --> %d\n", i++, ft_strcmp(s1, s2), strcmp(s1, s2), ft_strcmp(s1, s2) == strcmp(s1, s2));
 	s1 = "";
 	s2 = "blue";
-	printf("%d) %d == %d --. %d\n", i++, ft_strcmp(s1, s2), strcmp(s1, s2), ft_strcmp(s1, s2) == strcmp(s1, s2));
+	printf("%d) %d == %d --> %d\n", i++, ft_strcmp(s1, s2), strcmp(s1, s2), ft_strcmp(s1, s2) == strcmp(s1, s2));
+	s1 = "cba";
+	s2 = "abc";
+	printf("%d) %d == %d --> %d\n", i++, ft_strcmp(s1, s2), strcmp(s1, s2), ft_strcmp(s1, s2) == strcmp(s1, s2));
 
 	int n;
 	printf("\n===ft_strncmp===\n");
 	s1 = "red";
 	s2 = "blue";
 	n = 2;
-	printf("%d) %d == %d --. %d\n", i++, ft_strncmp(s1, s2, n), strncmp(s1, s2, n), ft_strncmp(s1, s2, n) == strncmp(s1, s2, n));
+	printf("%d) %d == %d --> %d\n", i++, ft_strncmp(s1, s2, n), strncmp(s1, s2, n), ft_strncmp(s1, s2, n) == strncmp(s1, s2, n));
 	s1 = "";
 	s2 = "blue";
 	n = 3;
-	printf("%d) %d == %d --. %d\n", i++, ft_strncmp(s1, s2, n), strncmp(s1, s2, n), ft_strncmp(s1, s2, n) == strncmp(s1, s2, n));
+	printf("%d) %d == %d --> %d\n", i++, ft_strncmp(s1, s2, n), strncmp(s1, s2, n), ft_strncmp(s1, s2, n) == strncmp(s1, s2, n));
 	s1 = "red";
 	s2 = "blue";
 	n = 0;
-	printf("%d) %d == %d --. %d\n", i++, ft_strncmp(s1, s2, n), strncmp(s1, s2, n), ft_strncmp(s1, s2, n) == strncmp(s1, s2, n));
+	printf("%d) %d == %d --> %d\n", i++, ft_strncmp(s1, s2, n), strncmp(s1, s2, n), ft_strncmp(s1, s2, n) == strncmp(s1, s2, n));
 
 
 	printf("\n===ft_atoi===\n");
