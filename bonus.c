@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 15:54:22 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/28 19:38:57 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/29 15:53:45 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	main(void)
 	free(item->content);
 	free(item);
 
+
 	*p = 12;
 	item = ft_lstnew(p, sizeof(int));
 	*p = 13;
@@ -75,9 +76,27 @@ int	main(void)
 	free(item->content);
 	free(item);
 
-	//test where si is before fi
-	//test with list of length 1.
-	//test where si == fi
+	*p = 12;
+	item = ft_lstnew(p, sizeof(int));
+	*p = 24;
+	item->next = ft_lstnew(p, sizeof(int));
+	*p = 36;
+	item->next->next = ft_lstnew(p, sizeof(int));
+	printf("Before:\n");
+	print_list(item);
+	printf("After (12 -> 36 -> 24 ->):\n");
+	item = ft_lst_swap(&item, 2, 1);
+	print_list(item);
+
+ 	item = ft_lst_swap(&item, 2, 2);
+ 	printf("After (12 -> 36 -> 24 ->):\n");
+ 	print_list(item);
+ 	free(item->next->next->content);
+ 	free(item->next->next);
+ 	free(item->next->content);
+ 	free(item->next);
+ 	free(item->content);
+ 	free(item);
 
 	return (0);
 }
