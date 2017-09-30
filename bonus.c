@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 15:54:22 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/29 15:53:45 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/09/29 22:12:10 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(void)
 	int a; 
 	int *p;
 	t_list *item;
+	t_list *itemdup;
 
 	a = 42;
 	p = &a;
@@ -90,7 +91,10 @@ int	main(void)
 
  	item = ft_lst_swap(&item, 2, 2);
  	printf("After (12 -> 36 -> 24 ->):\n");
- 	print_list(item);
+
+	printf("\n===ft_lstdup===\n");
+	itemdup = ft_lstdup(item);
+ 	print_list(itemdup);
  	free(item->next->next->content);
  	free(item->next->next);
  	free(item->next->content);
