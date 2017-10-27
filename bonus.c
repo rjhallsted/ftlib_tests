@@ -6,13 +6,14 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 15:54:22 by rhallste          #+#    #+#             */
-/*   Updated: 2017/09/29 22:12:10 by rhallste         ###   ########.fr       */
+/*   Updated: 2017/10/27 16:39:16 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "../libft/libft.h"
+#include <string.h>
+#include "../libft/inc/libft.h"
 
 static void print_list(t_list *item)
 {
@@ -101,6 +102,10 @@ int	main(void)
  	free(item->next);
  	free(item->content);
  	free(item);
+
+	printf("\n===ft_arraylen===\n");
+	char stringy[] = "testing";
+	printf("%s: %lu == %zu --> %d\n", stringy, strlen(stringy), ft_arraylen(stringy), strlen(stringy) == ft_arraylen(stringy));
 
 	return (0);
 }
